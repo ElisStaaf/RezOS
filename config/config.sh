@@ -29,6 +29,8 @@ mkdir -p log/
 
 echo "Configuring..."
 
+echo "$PROFILE"
+
 if [ ! $PROFILE == "$PROFILE_DIR/default" ]; then
     set -x
 

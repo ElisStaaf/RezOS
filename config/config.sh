@@ -8,7 +8,7 @@
 
 set -e
 
-PROFILE_DIR="config/profiles"
+PROFILE_DIR="config/profiles/"
 
 if [ $# -eq 0 ]
   then
@@ -29,15 +29,11 @@ mkdir -p log/
 
 echo "Configuring..."
 
-echo "$PROFILE"
+set -x
 
-if [ ! $PROFILE == "$PROFILE_DIR/default" ]; then
-    set -x
-
-    #ln $PROFILE/kentry-aarch64.S   kernel/kentry/aarch64/config.S
-    ln $PROFILE/limfeats-config-x86_64.asm  kernel/obj/x86_64/limfeats/config.asm
-    ln $PROFILE/rkernel.rs         kernel/src/config.rs
-    ln $PROFILE/Makeconfig.mk      config.mk
-fi
+#ln $PROFILE/kentry-aarch64.S   kernel/kentry/aarch64/config.S
+ln $PROFILE/limfeats-config-x86_64.asm  kernel/obj/x86_64/limfeats/config.asm
+ln $PROFILE/rkernel.rs         kernel/src/config.rs
+ln $PROFILE/Makeconfig.mk      config.mk
 
 echo "Configured!"
